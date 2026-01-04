@@ -6,8 +6,8 @@ npm install
 ```
 Run or Build
 ```bash
-npm run dev/build
+npm run dev/preview/build
 ```
 ```bash
-yarn dev/build
+yarn dev/preview/build
 ```
