@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules
+
+# Distribution files
+dist
+dist-ssr
+
+# Local env files
+.env*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+
+# Build and coverage artifacts
+coverage
+*.tsbuildinfo
+.eslintcache
+
+# Testing artifacts
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# Vite related
+.vite
+
+# Environment files (if you want to exclude actual .env files from docker image)
+# Comment out the following lines if you want to include .env files in the docker image
+# .env
+# .env.*
+
+# Package manager specific
+# pnpm
+.pnpm-store
