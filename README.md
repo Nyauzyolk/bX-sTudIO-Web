@@ -10,6 +10,7 @@ npm install
 #### Frontend
 ```bash
 npm run dev/preview/build
+```
 #### Backend
 ```bash
 npm start
