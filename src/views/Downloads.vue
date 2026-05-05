@@ -52,14 +52,17 @@
         { label: '全部', value: 'all' },
         { label: 'Windows', value: 'Windows' },
         { label: 'macOS', value: 'macOS' },
-        { label: 'Linux', value: 'Linux' }
+        { label: 'Linux', value: 'Linux' },
+        { label: 'Android', value: 'Android' }
     ]
 
     const architecturesOptions = [
         { label: '全部', value: 'all' },
         { label: 'amd64', value: 'amd64' },
-        { label: '386', value: '386' },
-        { label: 'arm64', value: 'arm64' }
+        { label: 'i386', value: 'i386' },
+        { label: 'arm64', value: 'arm64' },
+        { label: 'arm32', value: 'arm32' },
+        { label: 'Mac M', value: 'MacM' }
     ]
 
     const columns = [

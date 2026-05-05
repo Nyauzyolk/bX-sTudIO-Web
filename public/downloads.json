@@ -6,21 +6,5 @@
         "platform": "Windows",
         "version":"0.0.1",
         "link": "https://example.com/"
-    },
-    {
-        "name": "test",
-        "architecture": "amd64",
-        "description": "test",
-        "platform": "macOS",
-        "version":"0.0.1",
-        "link": "https://example.com/"
-    },
-    {
-        "name": "test",
-        "architecture": "amd64",
-        "description": "test",
-        "platform": "Linux",
-        "version":"0.0.1",
-        "link": "https://example.com/"
     }
 ]
