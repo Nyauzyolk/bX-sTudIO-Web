@@ -88,7 +88,7 @@
         closable
       >
         <ul>
-          <li><n-button text tag="a" href="https://example.com/" type="primary">Template Project</n-button></li>
+          <li><n-button text tag="a" href="https://github.com/Nyauzyolk/bX-sTudIO-Web" target="_blank" type="primary">bX-sTudIO-Web</n-button></li>
         </ul>
       </n-card>
     </n-modal>
@@ -182,5 +182,23 @@ a {
 
 .red {
   color: #ad0023;
+}
+
+@media (max-width: 992px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card-container a,
+  .card-column > n-card {
+    width: 100%;
+  }
 }
 </style>

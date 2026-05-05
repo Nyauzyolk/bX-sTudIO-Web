@@ -18,3 +18,8 @@
   min-height: 75%;
   padding: 24px;
 }
+
+@font-face {
+  font-family: 'Maple Hand';
+  src: url('./Maple_hand.ttf') format('truetype');
+}

@@ -3,31 +3,37 @@
         <h2>下载</h2>
         <n-card>
             <n-space vertical>
-                <n-radio-group v-model:value="selectedPlatform" name="platform-selection">
-                    <n-radio-button
-                        v-for="platform in platformOptions"
-                        :key="platform.value"
-                        :value="platform.value"
-                        :label="platform.label"
-                    />
-                </n-radio-group>
+                <div class="radio-group-row">
+                  <n-radio-group v-model:value="selectedPlatform" name="platform-selection">
+                      <n-radio-button
+                          v-for="platform in platformOptions"
+                          :key="platform.value"
+                          :value="platform.value"
+                          :label="platform.label"
+                      />
+                  </n-radio-group>
+                </div>
 
-                <n-radio-group v-model:value="selectedArchitecture" name="architecture-selection">
-                    <n-radio-button
-                        v-for="architecture in architecturesOptions"
-                        :key="architecture.value"
-                        :value="architecture.value"
-                        :label="architecture.label"
-                    />
-                </n-radio-group>
+                <div class="radio-group-row">
+                  <n-radio-group v-model:value="selectedArchitecture" name="architecture-selection">
+                      <n-radio-button
+                          v-for="architecture in architecturesOptions"
+                          :key="architecture.value"
+                          :value="architecture.value"
+                          :label="architecture.label"
+                      />
+                  </n-radio-group>
+                </div>
                 
                 <n-spin :show="loading">
-                    <n-data-table 
-                        :columns="columns"
-                        :data="filteredTableData"
-                        :pagination="false"
-                        striped
-                    />
+                    <div class="table-wrapper">
+                      <n-data-table 
+                          :columns="columns"
+                          :data="filteredTableData"
+                          :pagination="false"
+                          striped
+                      />
+                    </div>
                 </n-spin>
                 
                 <n-alert v-if="error" type="error" title="加载失败" style="margin-top: 16px;">
@@ -62,7 +68,7 @@
         { label: 'i386', value: 'i386' },
         { label: 'arm64', value: 'arm64' },
         { label: 'arm32', value: 'arm32' },
-        { label: 'M系列', value: 'm' }
+        { label: 'Apple M', value: 'm' }
     ]
 
     const columns = [
@@ -157,3 +163,50 @@
             })
     })
 </script>
+
+<style scoped>
+.container {
+  padding: 24px;
+}
+
+.container h2 {
+  margin-bottom: 16px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table-wrapper .n-data-table {
+  min-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+
+  .radio-group-row {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .radio-group-row .n-radio-group {
+    min-width: 100%;
+    display: inline-flex;
+  }
+
+  .radio-group-row .n-radio-button {
+    flex: 0 0 auto;
+    min-width: 100px;
+  }
+
+  .radio-group-row + .radio-group-row {
+    margin-top: 16px;
+  }
+}
+</style>

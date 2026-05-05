@@ -12,22 +12,20 @@
         <n-card>
             <div>请选择您的捐赠方式：</div>
             <div class="donate-options">
-                <n-card title="通过微信捐赠" hoverable>
-                    <p>扫描下面的二维码，通过微信进行捐赠：</p>
-                    <img src="" alt="微信捐赠二维码" style="width: 200px; height: 200px;">
+                <n-card @click="WeixinQRCodeModal = true" title="点击通过微信捐赠" style="cursor: pointer" hoverable>
+                    <p>点击卡片，打开微信扫描二维码进行捐赠。</p>
                 </n-card>
                 <div style="padding: 10px;"></div>
-                <n-card title="通过支付宝捐赠" hoverable>
-                    <p>扫描下面的二维码，通过支付宝进行捐赠：</p>
-                    <img src="" alt="支付宝捐赠二维码" style="width: 200px; height: 200px;">
+                <n-card @click="AlipayQRCodeModal = true" title="点击通过支付宝捐赠" style="cursor: pointer" hoverable>
+                    <p>点击卡片，打开支付宝扫描二维码进行捐赠。</p>
                 </n-card>
-                <div style="padding: 10px;"></div>
+                <!--<div style="padding: 10px;"></div>
                 <n-card title="通过银行转账捐赠" hoverable>
                     <div style="display: flex; flex-direction: column; gap: 16px;">
                         <div>银行账户：xxx</div>
                         <div>银行账号：xxx</div>
                     </div>
-                </n-card>
+                </n-card>-->
             </div>
         </n-card>
         <div style="padding-top: 5px;"></div>
@@ -35,10 +33,30 @@
         :columns="columns" 
         :data="data" 
         striped /> 
+
+        <n-modal v-model:show="WeixinQRCodeModal" title="微信捐赠二维码" >
+            <n-card title="微信捐赠二维码" style="width: 450px;" @close="WeixinQRCodeModal = false" closable>
+                <img :src="WeixinQRCode" alt="微信捐赠二维码">
+            </n-card>
+        </n-modal>
+
+        <n-modal v-model:show="AlipayQRCodeModal" title="支付宝捐赠二维码">
+            <n-card title="支付宝捐赠二维码" style="width: 450px;" @close="AlipayQRCodeModal = false" closable>
+                <img :src="AlipayQRCode" alt="支付宝捐赠二维码">
+            </n-card>
+        </n-modal>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import WeixinQRCode from '@/assets/WeixinQRCode.png'
+import AlipayQRCode from '@/assets/AlipayQRCode.png'
+
+const WeixinQRCodeModal = ref(false)
+const AlipayQRCodeModal = ref(false)
+
+
     const columns = [
         {
             title: '捐赠方式',

@@ -2,7 +2,7 @@
 <div class="container">
   <h2>关于</h2>
   <n-alert type="info" title="提示" show-icon>
-    以下是我们团队的核心成员，他们致力于为您提供优质的服务和产品。
+    以下是我们团队的核心成员，感谢他们为项目做出的贡献！
   </n-alert>
   <div style="padding-top: 5px;"></div>
   <n-card>
@@ -14,8 +14,56 @@
               <img :src="avatars['qwq9scan114514'] || defaultAvatar" alt="Lostrain-Yinzo" class="avatar">
             </n-spin>
             <img v-else :src="avatars['qwq9scan114514'] || defaultAvatar" alt="Lostrain-Yinzo" class="avatar">
-            <p>核心开发者 - 负责项目的核心开发和维护</p>
+            <p>核心开发者 - 万恶之源 - 负责项目的核心开发和维护</p>
             <p><n-button text tag="a" href="mailto:qwq9scan@outlook.com" type="primary">E-Mail</n-button> | <n-button text tag="a" href="https://github.com/qwq9scan114514" type="primary">GitHub</n-button></p>
+          </div>
+        </n-card>
+      </div>
+      <div class="card-column">
+        <n-card title="LinChiL" hoverable>
+          <div class="member-info">
+            <n-spin v-if="avatars['LinChiL'] === null" size="large">
+              <img :src="avatars['LinChiL'] || defaultAvatar" alt="LinChiL" class="avatar">
+            </n-spin>
+            <img v-else :src="avatars['LinChiL'] || defaultAvatar" alt="LinChiL" class="avatar">
+            <p>动画 - 文案合理性规划</p>
+            <p><n-button text tag="a" href="https://github.com/LinChiL" type="primary">GitHub</n-button></p> 
+          </div>
+        </n-card>
+      </div>
+      <div class="card-column">
+        <n-card title="寒冰" hoverable>
+          <div class="member-info">
+            <n-spin v-if="avatars['HanBingYa114514'] === null" size="large">
+              <img :src="avatars['HanBingYa114514'] || defaultAvatar" alt="HanBingYa114514" class="avatar">
+            </n-spin>
+            <img v-else :src="avatars['HanBingYa114514'] || defaultAvatar" alt="HanBingYa114514" class="avatar">
+            <p>社区管理 - 社区指导</p>
+            <p><n-button text tag="a" href="https://github.com/HanBingYa114514" type="primary">GitHub</n-button></p> 
+          </div>
+        </n-card>
+      </div>
+      <div class="card-column">
+        <n-card title="<Null1>" hoverable>
+          <div class="member-info">
+            <n-spin v-if="avatars['<Null1>'] === null" size="large">
+              <img :src="avatars['<Null1>'] || defaultAvatar" alt="<Null1>" class="avatar">
+            </n-spin>
+            <img v-else :src="avatars['<Null1>'] || defaultAvatar" alt="<Null1>" class="avatar">
+            <p>美工 ~~吉祥物~~ 无 GitHub</p>
+            <p><n-button text tag="a" href="mailto:example@example.com" type="primary">E-Mail</n-button></p>
+          </div>
+        </n-card>
+      </div>
+      <div class="card-column">
+        <n-card title="<Null2>" hoverable>
+          <div class="member-info">
+            <n-spin v-if="avatars['<Null2>'] === null" size="large">
+              <img :src="avatars['<Null2>'] || defaultAvatar" alt="<Null2>" class="avatar">
+            </n-spin>
+            <img v-else :src="avatars['<Null2>'] || defaultAvatar" alt="<Null2>" class="avatar">
+            <p>美工 - 无 GitHub</p>
+            <p><n-button text tag="a" href="mailto:example@example.com" type="primary">E-Mail</n-button></p>
           </div>
         </n-card>
       </div>
@@ -44,6 +92,8 @@ import defaultAvatar from '@/assets/default-avatar.png'
 // 存储头像URL
 const avatars = ref({
   'qwq9scan114514': null,
+  'LinChiL': null,
+  'HanBingYa114514': null,
   'Nyauzyolk': null
 })
 
@@ -62,6 +112,8 @@ const fetchGitHubAvatar = async (username) => {
 
 onMounted(() => {
   fetchGitHubAvatar('qwq9scan114514')
+  fetchGitHubAvatar('LinChiL')
+  fetchGitHubAvatar('HanBingYa114514')
   fetchGitHubAvatar('Nyauzyolk')
 })
 </script>
@@ -91,7 +143,28 @@ onMounted(() => {
   margin-bottom: 10px;
 }
 
-.red {
-  color: #ad0023;
+.member-info p {
+  margin: 8px 0;
+}
+
+@media (max-width: 992px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-container {
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
 </style>
