@@ -62,7 +62,7 @@
         { label: 'i386', value: 'i386' },
         { label: 'arm64', value: 'arm64' },
         { label: 'arm32', value: 'arm32' },
-        { label: 'Mac M', value: 'MacM' }
+        { label: 'M系列', value: 'm' }
     ]
 
     const columns = [
