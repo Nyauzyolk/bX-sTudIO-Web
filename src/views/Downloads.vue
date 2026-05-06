@@ -3,7 +3,7 @@
         <h2>下载</h2>
         <n-card>
             <n-space vertical>
-                <div class="radio-group-row">
+                <n-scrollbar x-scrollable>
                   <n-radio-group v-model:value="selectedPlatform" name="platform-selection">
                       <n-radio-button
                           v-for="platform in platformOptions"
@@ -12,9 +12,9 @@
                           :label="platform.label"
                       />
                   </n-radio-group>
-                </div>
+                </n-scrollbar>
 
-                <div class="radio-group-row">
+                <n-scrollbar x-scrollable>
                   <n-radio-group v-model:value="selectedArchitecture" name="architecture-selection">
                       <n-radio-button
                           v-for="architecture in architecturesOptions"
@@ -23,8 +23,8 @@
                           :label="architecture.label"
                       />
                   </n-radio-group>
-                </div>
-                
+                </n-scrollbar>
+
                 <n-spin :show="loading">
                     <div class="table-wrapper">
                       <n-data-table 
@@ -188,25 +188,6 @@
 
   .container h2 {
     font-size: 1.5rem;
-  }
-
-  .radio-group-row {
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .radio-group-row .n-radio-group {
-    min-width: 100%;
-    display: inline-flex;
-  }
-
-  .radio-group-row .n-radio-button {
-    flex: 0 0 auto;
-    min-width: 100px;
-  }
-
-  .radio-group-row + .radio-group-row {
-    margin-top: 16px;
   }
 }
 </style>

@@ -92,7 +92,7 @@
         </ul>
       </n-card>
     </n-modal>
-    <n-drawer v-model:show="showTerms" :width="480">
+    <n-drawer v-model:show="showTerms" :width="400">
     <n-drawer-content title="服务条款" :native-scrollbar="false" closable>
       <div>
           本服务条款（“条款”）适用于您使用由 bX-sTudIO 团队（“我们”或“本团队”）开发和提供的所有产品和服务（“服务”）。通过使用我们的服务，您同意遵守这些条款。如果您不同意这些条款，请勿使用我们的服务。
@@ -116,7 +116,7 @@
         </div>
     </n-drawer-content>
   </n-drawer>
-  <n-drawer v-model:show="showPrivacy" :width="480">
+  <n-drawer v-model:show="showPrivacy" :width="400">
     <n-drawer-content title="隐私政策" :native-scrollbar="false" closable>
         <div>
           本隐私政策解释了我们如何收集、使用、披露和保护您的个人信息。当您使用我们的服务时，即表示您同意本隐私条款中所述的做法。
