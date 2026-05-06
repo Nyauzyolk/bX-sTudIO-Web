@@ -17,4 +17,4 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 src/assets/AlipayQRCode.png
-src/assets/WeChatQRCode.png
+src/assets/WeixinQRCode.png
