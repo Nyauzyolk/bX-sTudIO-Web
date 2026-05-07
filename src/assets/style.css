@@ -22,5 +22,6 @@
 @font-face {
   font-family: 'Maple Hand';
   font-display: swap;
-  src: url('./MapleHand.woff2') format('woff2');
+  src: url('./MapleHand.woff2') format('woff2'),
+       url('./MapleHand.woff') format('woff');
 }
