@@ -2,8 +2,14 @@
 <div class="container">
   <h2>关于</h2>
   <n-alert type="info" title="提示" show-icon>
-    以下是我们团队的核心成员，感谢他们为项目做出的贡献！
+    本项目仍在持续开发中，如果您有任何疑问或建议，欢迎随时与我们联系。
   </n-alert>
+    <div style="padding-top: 5px;"></div>
+  <n-h1 prefix="bar">
+    <n-text type="primary">
+      正是你们，才有了星光璀璨的夜空
+    </n-text>
+  </n-h1>
   <div style="padding-top: 5px;"></div>
   <n-card>
     <div class="card-container">
@@ -15,7 +21,7 @@
             </n-spin>
             <img v-else :src="avatars['qwq9scan114514'] || defaultAvatar" alt="Lostrain-Yinzo" class="avatar">
             <p>核心开发者 - 万恶之源 - 负责项目的核心开发和维护</p>
-            <p><n-button text tag="a" href="mailto:qwq9scan@outlook.com" type="primary">E-Mail</n-button> | <n-button text tag="a" href="https://github.com/qwq9scan114514" type="primary">GitHub</n-button></p>
+            <p><n-button text tag="a" href="mailto:qwq9scan@outlook.com" target="_blank" type="primary">E-Mail</n-button> | <n-button text tag="a" href="https://github.com/qwq9scan114514" target="_blank" type="primary">GitHub</n-button></p>
           </div>
         </n-card>
       </div>
@@ -27,7 +33,7 @@
             </n-spin>
             <img v-else :src="avatars['LinChiL'] || defaultAvatar" alt="LinChiL" class="avatar">
             <p>动画 - 文案合理性规划</p>
-            <p><n-button text tag="a" href="https://github.com/LinChiL" type="primary">GitHub</n-button></p> 
+            <p><n-button text tag="a" href="https://github.com/LinChiL" target="_blank" type="primary">GitHub</n-button></p> 
           </div>
         </n-card>
       </div>
@@ -39,7 +45,7 @@
             </n-spin>
             <img v-else :src="avatars['HanBingYa114514'] || defaultAvatar" alt="HanBingYa114514" class="avatar">
             <p>社区管理 - 社区指导</p>
-            <p><n-button text tag="a" href="https://github.com/HanBingYa114514" type="primary">GitHub</n-button></p> 
+            <p><n-button text tag="a" href="https://github.com/HanBingYa114514" target="_blank" type="primary">GitHub</n-button></p> 
           </div>
         </n-card>
       </div>
@@ -51,7 +57,7 @@
             </n-spin>
             <img v-else :src="avatars['<Null1>'] || defaultAvatar" alt="<Null1>" class="avatar">
             <p>美工 ~~吉祥物~~ 无 GitHub</p>
-            <p><n-button text tag="a" href="mailto:example@example.com" type="primary">E-Mail</n-button></p>
+            <p><n-button text tag="a" href="mailto:example@example.com" target="_blank" type="primary">E-Mail</n-button></p>
           </div>
         </n-card>
       </div>
@@ -63,7 +69,7 @@
             </n-spin>
             <img v-else :src="avatars['<Null2>'] || defaultAvatar" alt="<Null2>" class="avatar">
             <p>美工 - 无 GitHub</p>
-            <p><n-button text tag="a" href="mailto:example@example.com" type="primary">E-Mail</n-button></p>
+            <p><n-button text tag="a" href="mailto:example@example.com" target="_blank" type="primary">E-Mail</n-button></p>
           </div>
         </n-card>
       </div>
@@ -75,7 +81,7 @@
             </n-spin>
             <img v-else :src="avatars['Nyauzyolk'] || defaultAvatar" alt="Nyauzyolk" class="avatar">
             <p>场外援助 - 页面开发设计</p>
-            <p><n-button text tag="a" href="mailto:nyauzyolk@outlook.com" type="primary">E-Mail</n-button> | <n-button text tag="a" href="https://github.com/Nyauzyolk" type="primary">GitHub</n-button></p> 
+            <p><n-button text tag="a" href="mailto:nyauzyolk@outlook.com" target="_blank" type="primary">E-Mail</n-button> | <n-button text tag="a" href="https://github.com/Nyauzyolk" target="_blank" type="primary">GitHub</n-button></p> 
           </div>
         </n-card>
       </div>

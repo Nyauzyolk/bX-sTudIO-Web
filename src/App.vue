@@ -2,7 +2,7 @@
   <n-config-provider :theme="theme">
     <n-layout class="full-height">
       <!-- 顶部导航栏 -->
-      <n-layout-header bordered style="height: 56px; padding: 0 24px;">
+      <n-layout-header bordered style="height: 50px; padding: 0 24px;">
         <div style="display: flex; align-items: center; height: 100%;">
           <a href="/" :style="{ 
             marginLeft: '12px', 
@@ -55,6 +55,14 @@
             <n-layout-content class="content-wrapper">
               <router-view></router-view>
             </n-layout-content>
+            <n-layout-footer bordered style="height: 50px; padding: 0px 24px; display: flex; align-items: center;">
+              <div style="display: flex; align-items: center; height: 100%;">
+                <p>© 2026 <n-button text tag="a" href="/" target="_blank" type="primary">bX-sTudIO</n-button>. All rights reserved. </p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 16px; margin-left: auto;">
+                <n-button text tag="a" href="https://beian.miit.gov.cn/" target="_blank" type="primary">京ICP备0000000000号</n-button>
+              </div>
+            </n-layout-footer>
           </n-layout>
       </n-layout>
     </n-layout>
@@ -164,13 +172,20 @@ function handleUpdateValue(key) {
 }
 
 .content-wrapper {
-  height: calc(100vh - 56px); /* 减去头部高度 */
+  height: calc(100vh - 50px - 50px); /* 减去头部和底部高度 */
   overflow-y: auto;
 }
 
 .container {
   padding: 20px;
   height: 100%;
+}
+
+/* 底部样式调整 */
+.n-layout-footer {
+  background-color: var(--n-color);
+  border-top: 1px solid var(--n-border-color);
+  height: 40px;
 }
 
 /* 平板设备 */
