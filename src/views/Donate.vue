@@ -78,7 +78,7 @@ const AlipayQRCodeModal = ref(false)
 
     const data = [
         /* 添加捐赠信息 
-{
+        {
             method: '微信',
             nickname: '昵称',
             amount: '100元',

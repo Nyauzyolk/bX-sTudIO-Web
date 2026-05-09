@@ -1,81 +1,85 @@
 <template>
-  <n-config-provider :theme="theme">
-    <n-layout class="full-height">
-      <!-- 顶部导航栏 -->
-      <n-layout-header bordered style="height: 50px; padding: 0 24px;">
-        <div style="display: flex; align-items: center; height: 100%;">
-          <a href="/" :style="{ 
-            marginLeft: '12px', 
-            fontSize: '20px', 
-            textDecoration: 'none',
-            color: theme ? '#ffffff' : '#000000'
-          }">bX-sTudIO</a>
+  <NLoadingBarProvider>
+    <n-config-provider :theme="theme">
+      <n-layout class="full-height">
+        <!-- 顶部导航栏 -->
+        <n-layout-header bordered style="height: 50px; padding: 0 24px;">
+          <div style="display: flex; align-items: center; height: 100%;">
+            <a href="/" :style="{ 
+              marginLeft: '12px', 
+              fontSize: '20px', 
+              textDecoration: 'none',
+              color: theme ? '#ffffff' : '#000000'
+            }">bX-sTudIO</a>
       
-          <div style="flex: 1;"></div>
+            <div style="flex: 1;"></div>
 
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <n-dropdown 
-              trigger="hover" 
-              :options="themeOptions" 
-              @select="handleThemeSelect"
-            >
-              <n-button>
-                <NIcon>
-                  <DarkTheme20Filled v-if="themeManager.getCurrentMode() === 'auto'" />
-                  <MoonOutline v-if="themeManager.getCurrentMode() === 'dark'" />
-                  <SunnyOutline v-else-if="themeManager.getCurrentMode() === 'light'" />
-                </NIcon>
-              </n-button>
-            </n-dropdown>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <n-dropdown 
+                trigger="hover" 
+                :options="themeOptions" 
+                @select="handleThemeSelect"
+              >
+                <n-button>
+                  <NIcon>
+                    <DarkTheme20Filled v-if="themeManager.getCurrentMode() === 'auto'" />
+                    <MoonOutline v-if="themeManager.getCurrentMode() === 'dark'" />
+                    <SunnyOutline v-else-if="themeManager.getCurrentMode() === 'light'" />
+                  </NIcon>
+                </n-button>
+              </n-dropdown>
+            </div>
           </div>
-        </div>
-      </n-layout-header>
+        </n-layout-header>
 
-      <!-- 主体布局 -->
-      <n-layout has-sider class="main-layout">
-          <n-layout-sider
-            bordered
-            collapse-mode="width"
-            :collapsed-width="64"
-            :width="240"
-            :collapsed="collapsed"
-            show-trigger
-            @collapse="collapsed = true"
-            @expand="collapsed = false"
-          >
-            <n-menu
-              :collapsed="collapsed"
+        <!-- 主体布局 -->
+        <n-layout has-sider class="main-layout">
+            <n-layout-sider
+              bordered
+              collapse-mode="width"
               :collapsed-width="64"
-              :collapsed-icon-size="22"
-              :options="menuOptions" 
-              @update:value="handleUpdateValue"
-            />
-          </n-layout-sider>
-          <n-layout>
-            <n-layout-content class="content-wrapper">
-              <router-view></router-view>
-            </n-layout-content>
-            <n-layout-footer bordered style="height: 50px; padding: 0px 24px; display: flex; align-items: center;">
-              <div style="display: flex; align-items: center; height: 100%;">
-                <p>© 2026 <n-button text tag="a" href="/" target="_blank" type="primary">bX-sTudIO</n-button>. All rights reserved. </p>
-              </div>
-              <div style="display: flex; align-items: center; gap: 16px; margin-left: auto;">
-                <n-button text tag="a" href="https://beian.miit.gov.cn/" target="_blank" type="primary">京ICP备0000000000号</n-button>
-              </div>
-            </n-layout-footer>
-          </n-layout>
+              :width="240"
+              :collapsed="collapsed"
+              show-trigger
+              @collapse="collapsed = true"
+              @expand="collapsed = false"
+            >
+              <n-menu
+                :collapsed="collapsed"
+                :collapsed-width="64"
+                :collapsed-icon-size="22"
+                :options="menuOptions" 
+                @update:value="handleUpdateValue"
+              />
+            </n-layout-sider>
+            <n-layout>
+              <n-layout-content class="content-wrapper">
+                <ViewComponent />
+              </n-layout-content>
+              <n-layout-footer bordered style="height: 50px; padding: 0px 24px; display: flex; align-items: center;">
+                <div style="display: flex; align-items: center; height: 100%;">
+                  <p>© 2026 <n-button text tag="a" href="/" target="_blank" type="primary">bX-sTudIO</n-button>. All rights reserved. </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px; margin-left: auto;">
+                  <n-button text tag="a" href="https://beian.miit.gov.cn/" target="_blank" type="primary">京ICP备0000000000号</n-button>
+                </div>
+              </n-layout-footer>
+            </n-layout>
+        </n-layout>
       </n-layout>
-    </n-layout>
-  </n-config-provider>
+    </n-config-provider>
+  </NLoadingBarProvider>
 </template>
 
 <script setup>
-import { ref, h, onMounted, onUnmounted } from 'vue'
+import { ref, h, defineComponent, onMounted, onUnmounted } from 'vue'
 import { Coins } from '@vicons/fa'
 import { DarkTheme20Filled } from '@vicons/fluent'
 import { HomeOutline, BookOutline, CloudDownloadOutline, InformationCircleOutline, SunnyOutline, MoonOutline } from '@vicons/ionicons5'
 import { SupportAgentFilled } from '@vicons/material'
 import { RouterView, useRouter } from 'vue-router'
+
+
 import { themeManager } from './plugins/themeManager'
 
 const router = useRouter()
@@ -83,6 +87,17 @@ const collapsed = ref(false)
 const isMobile = ref(false)
 const screenWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1024)
 const theme = themeManager.currentTheme
+
+import { useProviderStore } from './plugins/provider'
+
+const provider = useProviderStore()
+
+const ViewComponent = defineComponent({
+  render: () => h(RouterView),
+  setup: () => {
+    provider.setLoadingBar(useLoadingBar())
+  }
+})
 
 // 侧边栏菜单
 const menuOptions = [

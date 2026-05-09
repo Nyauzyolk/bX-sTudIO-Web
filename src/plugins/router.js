@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useProviderStore } from '@/plugins/provider'
 
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 
 import Index from '@/views/Index.vue'
 import About from '@/views/About.vue'
@@ -29,15 +28,12 @@ const router = createRouter({
     routes
 })
 
-NProgress.configure({ showSpinner: false })
-
-router.beforeEach((to, from, next) => {
-  NProgress.start()
-  next()
+router.beforeEach(() => {
+  useProviderStore().loadingBar?.start()
 })
 
 router.afterEach(() => {
-  NProgress.done()
+  useProviderStore().loadingBar?.finish()
 })
 
 export default router

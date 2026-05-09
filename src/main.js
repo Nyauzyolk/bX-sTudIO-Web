@@ -12,6 +12,11 @@ import './assets/style.css'
 
 const app = createApp(App)
 
+import { createPinia } from 'pinia'
+
+
 app.use(router)
+app.use(createPinia())
+
 
 app.mount('#app')
