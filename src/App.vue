@@ -185,7 +185,6 @@ function handleUpdateValue(key) {
 .n-layout-footer {
   background-color: var(--n-color);
   border-top: 1px solid var(--n-border-color);
-  height: 40px;
 }
 
 /* 平板设备 */
@@ -228,7 +227,12 @@ function handleUpdateValue(key) {
   }
   
   .content-wrapper {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 50px);
+  }
+
+  /* footer 手机适配 */
+  .n-layout-footer {
+    display: none;
   }
 }
 </style>
