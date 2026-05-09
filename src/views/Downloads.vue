@@ -101,11 +101,16 @@
                     { 
                         text: true,
                         tag: 'a',
-                        href: row.link || '#', 
+                        href: row.link || undefined,
                         target: '_blank', 
                         type: 'primary', 
                         size: 'small',
-                        disabled: !row.link
+                        disabled: !row.link,
+                        onClick: (e) => {
+                            if (!row.link) {
+                                e.preventDefault()
+                            }
+                        }
                     }, 
                     { default: () => '下载' }
                 )

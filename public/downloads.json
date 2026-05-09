@@ -1,10 +1,10 @@
 [    
     {
-        "name": "test",
-        "architecture": "amd64",
-        "description": "test",
-        "platform": "Windows",
-        "version":"0.0.1",
-        "link": "https://example.com/"
+        "name": "",
+        "architecture": "",
+        "description": "",
+        "platform": "",
+        "version":"",
+        "link": ""
     }
 ]
